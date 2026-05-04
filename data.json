@@ -1,18 +1,8 @@
 {
-  "registrations": [
-    {
-      "id": 1776260121225,
-      "firstname": "fgh",
-      "lastname": "nvc",
-      "email": "benjamin.vif.argent@gmail.com",
-      "phone": "0698646157",
-      "city": "FONTAINEBLEAU",
-      "timestamp": "2026-04-15T13:35:21.225Z",
-      "result": "GAGNÉ",
-      "securityCode": "IL4M-SL9S"
-    }
-  ],
+  "registrations": [],
   "config": {
-    "dailyStock": 5
+    "dailyStock": 2,
+    "startTime": "12:00",
+    "endTime": "17:00"
   }
 }

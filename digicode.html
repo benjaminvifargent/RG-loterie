@@ -18,10 +18,11 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#a03c04",
-                        "secondary": "#0f6d39",
-                        "on-surface": "#1a1c1c",
-                        "surface-variant": "#e2e2e2",
+                        "primary": "#0b1e04",
+                        "secondary": "#ffff31",
+                        "accent": "#de7313",
+                        "on-surface": "#ffffff",
+                        "surface-variant": "#25361f",
                     },
                     fontFamily: {
                         "headline": ["Plus Jakarta Sans"],
@@ -33,7 +34,7 @@
     </script>
     <style>
         .clay-gradient {
-            background: linear-gradient(135deg, #a03c04, #7e2c00);
+            background: linear-gradient(135deg, #de7313, #0b1e04);
         }
 
         .key-shadow {
@@ -46,8 +47,8 @@
 
         .dot.active {
             transform: scale(1.2);
-            background-color: #a03c04;
-            box-shadow: 0 0 15px rgba(160, 60, 4, 0.4);
+            background-color: #ffff31;
+            box-shadow: 0 0 15px rgba(255, 255, 49, 0.4);
         }
 
         @keyframes shake {
@@ -79,7 +80,7 @@
 </head>
 
 <body
-    class="bg-[#f9f9f9] font-body text-on-surface flex items-center justify-center min-h-screen overflow-hidden px-6 md:px-20">
+    class="bg-[#0b1e04] font-body text-white flex items-center justify-center min-h-screen overflow-hidden px-6 md:px-20">
 
     <!-- Decorative background -->
     <div class="absolute inset-0 pointer-events-none opacity-20">
@@ -88,109 +89,99 @@
     </div>
 
     <!-- Main Content Grid -->
-    <div class="relative z-10 w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+    <div
+        class="relative z-10 w-full max-w-[1300px] grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-center">
 
         <!-- Left Side: Information -->
-        <div class="text-left space-y-8 max-w-xl">
-            <div class="space-y-4">
-                <img src="Logo_Roland-Garros.svg.png" alt="Roland Garros" class="w-40 h-40">
+        <div class="text-left space-y-12 max-w-4xl">
+            <div class="space-y-3">
+                <img src="logoWAT.svg" alt="Logo WAT" class="w-48 h-48 mb-8">
                 <span
-                    class="bg-secondary text-white px-5 py-2 rounded-full font-headline text-[0.8rem] font-bold uppercase tracking-[0.2em] inline-block shadow-lg shadow-secondary/20">Phase
-                    Finale</span>
-                <h1 class="font-headline text-5xl lg:text-7xl font-black text-on-surface leading-[1.1]">
-                    Le Code <span class="text-primary italic">Signature</span>
+                    class="bg-secondary text-primary px-5 py-3 rounded-full font-headline text-[0.8rem] font-bold uppercase tracking-[0.2em] inline-block shadow-lg shadow-secondary/20">
+                    Un accès privilégié vous attend.
+                </span>
+                <h1 class="font-headline text-5xl lg:text-7xl font-black text-on-surface leading-[1.05]">
+                    Le Code <span class="text-secondary italic">Gagnant</span>
                 </h1>
-                <p class="text-on-surface/70 text-lg lg:text-xl leading-relaxed">
-                    Prenez place sur le court central. Entrez la combinaison mystère pour déverrouiller l'accès à votre
-                    place.
+                <p class="text-on-surface/70 text-base lg:text-lg leading-relaxed">
+                    Saisissez votre code et découvrez si vous faites partie des invités <br>pour vivre Roland-Garros.
                 </p>
             </div>
 
             <!-- Stats & Info -->
-            <div class="grid grid-cols-3 gap-8 pt-8 border-t border-on-surface/10">
+            <div class="flex gap-12 pt-6 border-t border-on-surface/10">
                 <div class="flex flex-col">
-                    <span class="text-[11px] uppercase font-bold tracking-widest text-on-surface/40 mb-1">Places
-                        Restantes</span>
-                    <div class="flex items-center gap-3">
-                        <span id="liveRemaining" class="text-secondary font-black text-4xl">05</span>
-                        <div class="bg-secondary/10 px-2 py-0.5 rounded text-[10px] text-secondary font-bold uppercase">
-                            Série A</div>
-                    </div>
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-[11px] uppercase font-bold tracking-widest text-on-surface/40 mb-1">Gagnants
+                    <span class="text-sm uppercase font-bold tracking-widest text-on-surface/40 mb-2">Gagnants
                         aujourd'hui</span>
-                    <div class="flex items-center gap-3">
-                        <span id="liveWinners" class="text-primary font-black text-4xl">02</span>
-                        <span class="material-symbols-outlined text-primary/30 text-xl">group</span>
+                    <div class="flex items-center gap-4">
+                        <span id="liveWinners" class="text-accent font-black text-6xl">02</span>
+                        <span class="material-symbols-outlined text-accent/30 text-3xl">group</span>
                     </div>
                 </div>
-
             </div>
 
             <!-- Hint -->
             <div
-                class="bg-white/50 backdrop-blur-sm p-4 rounded-2xl border border-white/50 flex items-center gap-4 text-sm text-on-surface/60 italic">
-                <span class="material-symbols-outlined text-secondary">info</span>
-                "Le code à 4 chiffres est réinitialisé à chaque tentative échouée. Suivez votre instinct."
+                class="bg-surface-variant backdrop-blur-sm p-4 rounded-[1.25rem] border flex items-center gap-3 text-base text-on-surface/60 italic">
+                <span class="material-symbols-outlined text-secondary text-xl">info</span>
+                "Chaque tentative peut ouvrir les portes du court central."
             </div>
         </div>
 
-        <!-- Right Side: Digicode -->
         <div class="flex justify-center md:justify-end">
             <main
-                class="glass-panel rounded-[3rem] p-10 md:p-12 shadow-[0_30px_100px_rgba(0,0,0,0.1)] w-full max-w-[400px] border-[1.5px] border-white/80">
+                class="glass-panel rounded-[3rem] p-6 md:p-8 shadow-[0_30px_100px_rgba(0,0,0,0.3)] w-full max-w-[500px] border-[2px] border-white/80">
 
                 <!-- Display Dots -->
-                <div id="display" class="flex justify-center gap-6 mb-12">
+                <div id="display" class="flex justify-center gap-6 mb-6">
                     <div
-                        class="dot w-5 h-5 rounded-full bg-surface-variant/40 border-[2px] border-surface-variant/20 shadow-inner">
+                        class="dot w-6 h-6 rounded-full bg-surface-variant/40 border-[3px] border-surface-variant/20 shadow-inner">
                     </div>
                     <div
-                        class="dot w-5 h-5 rounded-full bg-surface-variant/40 border-[2px] border-surface-variant/20 shadow-inner">
+                        class="dot w-6 h-6 rounded-full bg-surface-variant/40 border-[3px] border-surface-variant/20 shadow-inner">
                     </div>
                     <div
-                        class="dot w-5 h-5 rounded-full bg-surface-variant/40 border-[2px] border-surface-variant/20 shadow-inner">
+                        class="dot w-6 h-6 rounded-full bg-surface-variant/40 border-[3px] border-surface-variant/20 shadow-inner">
                     </div>
                     <div
-                        class="dot w-5 h-5 rounded-full bg-surface-variant/40 border-[2px] border-surface-variant/20 shadow-inner">
+                        class="dot w-6 h-6 rounded-full bg-surface-variant/40 border-[3px] border-surface-variant/20 shadow-inner">
                     </div>
                 </div>
 
                 <!-- Keypad Grid -->
-                <div class="grid grid-cols-3 gap-5">
+                <div class="grid grid-cols-3 gap-4">
                     <!-- 1-9 Keys -->
                     <button onclick="pressKey('1')"
-                        class="key-shadow bg-white text-on-surface w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-3xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">1</button>
+                        class="key-shadow bg-white text-primary w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-4xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">1</button>
                     <button onclick="pressKey('2')"
-                        class="key-shadow bg-white text-on-surface w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-3xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">2</button>
+                        class="key-shadow bg-white text-primary w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-4xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">2</button>
                     <button onclick="pressKey('3')"
-                        class="key-shadow bg-white text-on-surface w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-3xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">3</button>
+                        class="key-shadow bg-white text-primary w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-4xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">3</button>
 
                     <button onclick="pressKey('4')"
-                        class="key-shadow bg-white text-on-surface w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-3xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">4</button>
+                        class="key-shadow bg-white text-primary w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-4xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">4</button>
                     <button onclick="pressKey('5')"
-                        class="key-shadow bg-white text-on-surface w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-3xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">5</button>
+                        class="key-shadow bg-white text-primary w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-4xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">5</button>
                     <button onclick="pressKey('6')"
-                        class="key-shadow bg-white text-on-surface w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-3xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">6</button>
+                        class="key-shadow bg-white text-primary w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-4xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">6</button>
 
                     <button onclick="pressKey('7')"
-                        class="key-shadow bg-white text-on-surface w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-3xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">7</button>
+                        class="key-shadow bg-white text-primary w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-4xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">7</button>
                     <button onclick="pressKey('8')"
-                        class="key-shadow bg-white text-on-surface w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-3xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">8</button>
+                        class="key-shadow bg-white text-primary w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-4xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">8</button>
                     <button onclick="pressKey('9')"
-                        class="key-shadow bg-white text-on-surface w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-3xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">9</button>
+                        class="key-shadow bg-white text-primary w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-4xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">9</button>
 
                     <!-- Bottom row -->
                     <button onclick="clearCode()"
-                        class="key-shadow bg-surface-variant/20 text-on-surface/40 w-full aspect-square rounded-[1.5rem] flex items-center justify-center hover:bg-error hover:text-white transition-all active:scale-95">
+                        class="key-shadow bg-surface-variant/20 text-on-surface/40 w-full aspect-square rounded-[1.5rem] flex items-center justify-center hover:bg-accent hover:text-white transition-all active:scale-95">
                         <span class="material-symbols-outlined text-3xl">backspace</span>
                     </button>
                     <button onclick="pressKey('0')"
-                        class="key-shadow bg-white text-on-surface w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-3xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">0</button>
+                        class="key-shadow bg-white text-primary w-full aspect-square rounded-[1.5rem] flex items-center justify-center font-headline text-4xl font-black hover:bg-primary hover:text-white transition-all active:scale-95">0</button>
                     <button onclick="checkCode()"
-                        class="key-shadow clay-gradient text-white w-full aspect-square rounded-[1.5rem] flex items-center justify-center shadow-xl shadow-primary/30 hover:opacity-90 transition-all active:scale-95">
-                        <span class="material-symbols-outlined text-4xl">check</span>
+                        class="key-shadow bg-primary text-white w-full aspect-square rounded-[1.5rem] flex items-center justify-center shadow-xl shadow-primary/30 hover:opacity-90 transition-all active:scale-95">
+                        <span class="material-symbols-outlined text-3xl">check</span>
                     </button>
                 </div>
             </main>
@@ -200,42 +191,36 @@
     <!-- Modals -->
     <!-- Win Modal -->
     <div id="winModal"
-        class="fixed inset-0 z-[100] bg-on-surface/60 backdrop-blur-xl flex items-center justify-center p-6 hidden opacity-0 transition-opacity duration-500">
+        class="fixed inset-0 z-[100] bg-primary/80 backdrop-blur-xl flex items-center justify-center p-12 hidden opacity-0 transition-opacity duration-500">
         <div
-            class="bg-white max-w-sm w-full rounded-[2.5rem] p-10 text-center shadow-2xl transform scale-90 transition-transform duration-500 relative overflow-hidden">
-            <div class="absolute -top-24 -left-24 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+            class="bg-white max-w-2xl w-full rounded-[4rem] p-16 text-center shadow-2xl transform scale-90 transition-transform duration-500 relative overflow-hidden">
+            <div class="absolute -top-32 -left-32 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
             <div class="relative z-10 flex flex-col items-center">
                 <div
-                    class="w-20 h-20 bg-secondary text-white rounded-full flex items-center justify-center mb-6 shadow-lg shadow-secondary/30">
-                    <span class="material-symbols-outlined text-4xl"
+                    class="w-32 h-32 bg-secondary text-primary rounded-full flex items-center justify-center mb-10 shadow-lg shadow-secondary/30">
+                    <span class="material-symbols-outlined text-6xl"
                         style="font-variation-settings: 'FILL' 1;">celebration</span>
                 </div>
-                <h2
-                    class="font-headline text-3xl font-black text-on-surface uppercase tracking-tight mb-4 leading-none">
+                <h2 class="font-headline text-5xl font-black text-primary uppercase tracking-tight mb-6 leading-none">
                     VICTOIRE !</h2>
-                <p class="text-on-surface/70 leading-relaxed mb-6 text-sm">
-                    Le code est valide ! Présentez ce coupon pour réclamer <span class="text-secondary font-bold">
+                <p class="text-primary/70 leading-relaxed mb-10 text-xl">
+                    Le code est valide ! Présentez cet écran pour réclamer <span class="text-accent font-bold">
                         votre place </span>.
                 </p>
 
-                <!-- QR Code & Security -->
-                <div class="bg-surface-variant/20 p-6 rounded-3xl border border-surface-variant/30 mb-8 w-full">
-                    <div id="qrcode"
-                        class="w-32 h-32 mx-auto bg-white p-2 rounded-xl shadow-inner mb-4 flex items-center justify-center">
-                        <!-- QR image generated via JS -->
-                        <img id="qrImage" src="" alt="QR Code" class="w-full h-full">
-                    </div>
-                    <div class="space-y-1">
-                        <span class="text-[10px] uppercase font-bold tracking-widest text-on-surface/40">Code de
+                <!-- Security Code -->
+                <div class="bg-surface-variant/20 p-10 rounded-[3rem] border border-surface-variant/30 mb-12 w-full">
+                    <div class="space-y-2">
+                        <span class="text-[14px] uppercase font-bold tracking-widest text-primary/40">Code de
                             Sécurité unique</span>
                         <div id="securityCode"
-                            class="text-on-surface font-headline font-black text-xl tracking-[0.2em] uppercase">
+                            class="text-primary font-headline font-black text-4xl tracking-[0.2em] uppercase">
                             XXXX-XXXX</div>
                     </div>
                 </div>
 
-                <button onclick="location.href='accueil.html'"
-                    class="w-full clay-gradient text-white font-headline font-bold py-5 rounded-2xl shadow-xl shadow-primary/20 hover:opacity-90 transition-all uppercase tracking-widest text-xs">
+                <button onclick="location.href='index.html'"
+                    class="w-full bg-primary text-white font-headline font-bold py-8 rounded-3xl shadow-xl shadow-primary/20 hover:opacity-90 transition-all uppercase tracking-widest text-xl">
                     Retour à l'accueil
                 </button>
             </div>
@@ -244,23 +229,22 @@
 
     <!-- Lose Modal -->
     <div id="loseModal"
-        class="fixed inset-0 z-[100] bg-on-surface/60 backdrop-blur-xl flex items-center justify-center p-6 hidden opacity-0 transition-opacity duration-500">
+        class="fixed inset-0 z-[100] bg-primary/80 backdrop-blur-xl flex items-center justify-center p-12 hidden opacity-0 transition-opacity duration-500">
         <div
-            class="bg-white max-w-sm w-full rounded-[2.5rem] p-10 text-center shadow-2xl transform scale-90 transition-transform duration-500 relative overflow-hidden">
+            class="bg-white max-w-2xl w-full rounded-[4rem] p-16 text-center shadow-2xl transform scale-90 transition-transform duration-500 relative overflow-hidden">
             <div class="relative z-10">
                 <div
-                    class="w-20 h-20 bg-surface-variant text-on-surface/30 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span class="material-symbols-outlined text-4xl">lock</span>
+                    class="w-32 h-32 bg-surface-variant text-on-surface/30 rounded-full flex items-center justify-center mx-auto mb-10">
+                    <span class="material-symbols-outlined text-6xl">lock</span>
                 </div>
-                <h2
-                    class="font-headline text-3xl font-black text-on-surface uppercase tracking-tight mb-4 leading-none">
+                <h2 class="font-headline text-5xl font-black text-primary uppercase tracking-tight mb-6 leading-none">
                     PERDU...</h2>
-                <p class="text-on-surface/70 leading-relaxed mb-8 text-sm">
+                <p class="text-primary/70 leading-relaxed mb-12 text-xl">
                     Cette combinaison n'est pas la bonne. Votre chance est passée pour aujourd'hui.
                 </p>
-                <div class="flex flex-col gap-3">
-                    <button onclick="location.href='accueil.html'"
-                        class="w-full bg-on-surface text-white font-headline font-bold py-5 rounded-xl shadow-xl shadow-on-surface/20 hover:opacity-90 transition-all uppercase tracking-widest text-xs">
+                <div class="flex flex-col gap-4">
+                    <button onclick="location.href='index.html'"
+                        class="w-full bg-primary text-white font-headline font-bold py-8 rounded-3xl shadow-xl shadow-primary/20 hover:opacity-90 transition-all uppercase tracking-widest text-xl">
                         Revenir à l'accueil
                     </button>
                 </div>
@@ -271,6 +255,7 @@
     <!-- App Logic -->
     <script>
         let currentCode = "";
+        let adminTimeout = null;
         const maxLen = 4;
         const dots = document.querySelectorAll('.dot');
         const container = document.querySelector('main');
@@ -290,6 +275,19 @@
                 currentCode += num;
                 updateDots();
 
+                // Check for admin code (1397)
+                if (currentCode === "1397") {
+                    console.log("Admin code detected. Redirecting in 5s...");
+                    adminTimeout = setTimeout(() => {
+                        window.location.href = 'admin.html';
+                    }, 5000);
+                } else {
+                    if (adminTimeout) {
+                        clearTimeout(adminTimeout);
+                        adminTimeout = null;
+                    }
+                }
+
                 // Feedback vibration-like
                 if (window.navigator.vibrate) window.navigator.vibrate(20);
             }
@@ -299,25 +297,19 @@
             if (currentCode.length > 0) {
                 currentCode = currentCode.slice(0, -1);
                 updateDots();
+                
+                // Cancel admin redirect if code is changed
+                if (adminTimeout) {
+                    clearTimeout(adminTimeout);
+                    adminTimeout = null;
+                    console.log("Admin redirect cancelled.");
+                }
             }
         }
 
         async function updateResult(isWinner, securityCode = null) {
-            const currentUserId = sessionStorage.getItem('current_user_id');
-            if (currentUserId) {
-                try {
-                    await fetch(`/api/registrations/${currentUserId}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            result: isWinner ? 'GAGNÉ' : 'PERDU',
-                            securityCode: securityCode
-                        })
-                    });
-                } catch (e) {
-                    console.error("Update error", e);
-                }
-            }
+            // Data collection removed per user request
+            console.log("Result:", isWinner ? 'GAGNÉ' : 'PERDU', "Code:", securityCode);
         }
 
         async function checkCode() {
@@ -343,8 +335,10 @@
             const now = new Date();
             const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes();
 
-            const START_TIME = 12 * 60; // 12h00
-            const END_TIME = 17 * 60;   // 17h00
+            const [startH, startM] = (db.config.startTime || "12:00").split(':').map(Number);
+            const [endH, endM] = (db.config.endTime || "17:00").split(':').map(Number);
+            const START_TIME = startH * 60 + startM;
+            const END_TIME = endH * 60 + endM;
 
             const winnersToday = registrations.filter(r => {
                 const regDate = new Date(r.timestamp);
@@ -377,7 +371,7 @@
                 await updateResult(false);
                 showModal('loseModal');
             }
-            
+
             // Refresh stats UI
             updateLiveStats();
         }
@@ -393,7 +387,6 @@
                 }).length;
 
                 const remainingStock = Math.max(0, db.config.dailyStock - winnersToday);
-                document.getElementById('liveRemaining').innerText = remainingStock.toString().padStart(2, '0');
                 document.getElementById('liveWinners').innerText = winnersToday.toString().padStart(2, '0');
             } catch (e) {
                 console.error("Init error", e);
@@ -409,12 +402,6 @@
                 Math.random().toString(36).substring(2, 6).toUpperCase();
 
             document.getElementById('securityCode').innerText = uniqueId;
-
-            // Generate QR Code using QRServer API
-            const qrData = encodeURIComponent(`RG2026-WINNER-${uniqueId}`);
-            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}&bgcolor=ffffff&color=a03c04`;
-
-            document.getElementById('qrImage').src = qrUrl;
             return uniqueId;
         }
 

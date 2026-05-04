@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Roland-Garros BNP Parisbas</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;0,800;1,800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-bright": "#ffffff",
+                        "surface-container": "#e0e0c6",
+                        "surface-dim": "#eeeeee",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffff31",
+                        "on-surface": "#ffffff",
+                        "primary-fixed": "#7be335",
+                        "on-surface-variant": "#e0e0c6",
+                        "on-secondary-fixed-variant": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#7be335",
+                        "surface": "#0b1e04",
+                        "primary-container": "#de7313",
+                        "on-tertiary-fixed": "#ffffff",
+                        "inverse-surface": "#ffffff",
+                        "on-primary-fixed-variant": "#ffffff",
+                        "surface-variant": "#25361f",
+                        "on-primary-container": "#ffffff",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-container": "#25361f",
+                        "on-secondary": "#0b1e04",
+                        "surface-container-lowest": "#0b1e04",
+                        "tertiary-fixed": "#25361f",
+                        "inverse-on-surface": "#0b1e04",
+                        "on-primary-fixed": "#ffffff",
+                        "on-secondary-fixed": "#ffffff",
+                        "tertiary-fixed-dim": "#25361f",
+                        "surface-container-highest": "#25361f",
+                        "surface-tint": "#0b1e04",
+                        "secondary": "#ffff31",
+                        "on-background": "#ffffff",
+                        "outline": "#25361f",
+                        "surface-container-low": "#25361f",
+                        "on-secondary-container": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#ffff31",
+                        "surface-container-high": "#25361f",
+                        "secondary-fixed": "#ffff31",
+                        "secondary-fixed-dim": "#ffff31",
+                        "primary": "#ffff31",
+                        "tertiary": "#25361f",
+                        "outline-variant": "#25361f",
+                        "on-primary": "#0b1e04",
+                        "background": "#0b1e04"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #0b1e04;
+            color: #ffffff;
+        }
+
+        h1,
+        h2,
+        h3,
+        .brand-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .clay-texture {
+            background-color: #de7313;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        .editorial-shadow {
+            box-shadow: 0 12px 32px rgba(26, 28, 28, 0.06);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+        }
+
+        /* No scroll container */
+        .viewport-fixed {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface viewport-fixed">
+    <main class="relative flex-1 flex items-center justify-center overflow-hidden">
+        <!-- Hero Section adapted for Landscape Tablet (No Scroll) -->
+        <section class="relative w-full h-full flex flex-col justify-center px-16 lg:px-24">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 clay-texture opacity-5"></div>
+                <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent"></div>
+            </div>
+            <div class="relative z-10 grid grid-cols-12 gap-12 items-center h-full max-w-[1300px] mx-auto">
+                <!-- Text Content -->
+                <div class="col-span-6 flex flex-col items-start space-y-4">
+
+                    <img src="logoWAT.svg" alt="Logo WAT" class="w-48 h-48 mb-6">
+                    <div
+                        class="inline-flex items-center px-4 py-1 rounded-full border border-white text-on-secondary-container font-label font-bold text-[0.85rem] tracking-[0.1em] uppercase">
+                        Édition 2026
+                    </div>
+                    <h1 class="text-[2.8rem] leading-[1.1] font-extrabold text-primary italic">
+                        Accédez à l’expérience et découvrez instantanément si vous remportez vos places pour
+                        <span class="text-on-surface">Roland-Garros.</span>
+                    </h1>
+                    <p class="max-w-xl text-xl font-body text-on-surface-variant leading-relaxed">
+                        Chaque code peut vous rapprocher du court central.
+                    </p>
+                    <div class="flex items-center gap-6 pt-4">
+                        <button onclick="window.location.href='digicode.html'"
+                            class="bg-primary text-on-primary px-16 py-6 rounded-full font-headline font-bold text-2xl shadow-2xl shadow-primary/30 hover:scale-105 transition-transform active:scale-95">
+                            Entrer mon code
+                        </button>
+                    </div>
+                    <!-- Partenaires -->
+                    <div class="pt-8 border-t border-outline-variant/30 w-full mt-4">
+                        <div
+                            class="flex gap-8 opacity-40 grayscale text-[0.65rem] font-bold tracking-[0.2em] uppercase">
+
+                            <img src="partenaires/5ee9db6d2464c_Logo_BNP_Paribas.webp" alt="bnp paribas">
+                            <img src="partenaires/69a56ca1d9e79_emirate_partner_png.webp" alt="emirates">
+                            <img src="partenaires/5ee9f12930760_Lacoste_Official_1.webp" alt="lacoste">
+                            <!--<img src="partenaires/6239e32c3f8ae_Logo_Renault_.webp" alt="Renault">-->
+                        </div>
+                    </div>
+                </div>
+                <!-- Featured Imagery (Landscape Optimized) -->
+                <div class="col-span-6 relative h-[80%]">
+                    <!-- Main Image Overlay -->
+                    <div
+                        class="relative w-full h-full max-h-[600px] aspect-[4/5] mx-auto rounded-lg overflow-hidden editorial-shadow transform rotate-2 z-20">
+                        <img alt="Premium Roland Garros tickets and white panama hat on clay surface"
+                            class="w-full h-full object-cover"
+                            data-alt="Close-up of premium Roland Garros gold-embossed tickets resting on a classic white panama hat with orange ribbon, sunlit on a textured clay tennis court background."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkAEN6H7Bj9J7d2a0yOiojY-CQWjAOQnnIt0rtT_EHHmPAU0E15g5cLXAyv8EUUlR211NBrT3PuJqqp0kvx6Lg-pSNnRmbD8Xgm9jYGJlsMBcS2CMbfuohTPQbaQ8WD9ScUyNkVpgo4dETqKvyZE2tiYMR5ulosFpI7qsnJjQwaRRKBY4elCgkjkQngkGvgrxaT6yHXqZo_rfnQoL5IqdcEaG-AMZjAh3nkyzbBO5TPsV6FWp8kVHwFRY6PBkmFZKSEVNAqxjUhE0" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Subtle Footer Decoration (Since no scrolling, we keep it very minimal) -->
+    <div class="absolute bottom-4 left-0 w-full px-16 lg:px-24 flex justify-between items-end z-20 pointer-events-none">
+        <div class="text-[0.6rem] text-on-surface-variant/50 font-label tracking-widest uppercase">
+            © 2026 Vif-Argent - La Fourmi
+        </div>
+
+    </div>
+</body>
+
+</html>
