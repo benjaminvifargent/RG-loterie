@@ -16,7 +16,7 @@ After=network.target
 Type=simple
 User=$USER_NAME
 WorkingDirectory=$APP_DIR
-ExecStart=/usr/bin/node server.js
+ExecStart=/home/pi5/.nvm/versions/node/v24.15.0/bin/node server.js
 Restart=on-failure
 
 [Install]
@@ -35,7 +35,7 @@ cat > ~/.config/autostart/kiosk.desktop << EOF
 [Desktop Entry]
 Type=Application
 Name=Kiosk Loterie
-Exec=sh -c "sleep 10 && chromium-browser --kiosk --noerrdialogs --disable-infobars --check-for-update-interval=31536000 --password-store=basic --app=http://localhost:3000"
+Exec=sh -c "sleep 15 && chromium --kiosk --noerrdialogs --disable-infobars --check-for-update-interval=31536000 --password-store=basic --app=http://localhost:3000"
 X-GNOME-Autostart-enabled=true
 EOF
 
