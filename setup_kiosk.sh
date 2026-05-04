@@ -35,7 +35,7 @@ cat > ~/.config/autostart/kiosk.desktop << EOF
 [Desktop Entry]
 Type=Application
 Name=Kiosk Loterie
-Exec=chromium-browser --kiosk --noerrdialogs --disable-infobars --check-for-update-interval=31536000 --app=http://localhost:3000
+Exec=chromium-browser --kiosk --noerrdialogs --disable-infobars --check-for-update-interval=31536000 --password-store=basic --app=http://localhost:3000
 X-GNOME-Autostart-enabled=true
 EOF
 
