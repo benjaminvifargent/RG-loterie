@@ -16,7 +16,11 @@ app.use(express.static(__dirname));
 if (!fs.existsSync(DATA_FILE)) {
     fs.writeFileSync(DATA_FILE, JSON.stringify({
         registrations: [],
-        config: { dailyStock: 5 }
+        config: { 
+            dailyStock: 5,
+            startTime: "12:00",
+            endTime: "17:00"
+        }
     }, null, 2));
 }
 
@@ -25,40 +29,6 @@ app.get('/api/data', (req, res) => {
     fs.readFile(DATA_FILE, 'utf8', (err, data) => {
         if (err) return res.status(500).send('Error reading data');
         res.json(JSON.parse(data));
-    });
-});
-
-// Update registrations
-app.post('/api/registrations', (req, res) => {
-    const newRegistration = req.body;
-    fs.readFile(DATA_FILE, 'utf8', (err, data) => {
-        if (err) return res.status(500).send('Error reading data');
-        const db = JSON.parse(data);
-        db.registrations.push(newRegistration);
-        fs.writeFile(DATA_FILE, JSON.stringify(db, null, 2), (err) => {
-            if (err) return res.status(500).send('Error saving data');
-            res.json({ success: true });
-        });
-    });
-});
-
-// Update a specific registration (by ID) - used for the digicode result
-app.put('/api/registrations/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const updates = req.body;
-    fs.readFile(DATA_FILE, 'utf8', (err, data) => {
-        if (err) return res.status(500).send('Error reading data');
-        const db = JSON.parse(data);
-        const index = db.registrations.findIndex(r => r.id === id);
-        if (index !== -1) {
-            db.registrations[index] = { ...db.registrations[index], ...updates };
-            fs.writeFile(DATA_FILE, JSON.stringify(db, null, 2), (err) => {
-                if (err) return res.status(500).send('Error saving data');
-                res.json({ success: true });
-            });
-        } else {
-            res.status(404).send('Registration not found');
-        }
     });
 });
 

@@ -22,18 +22,23 @@
     </style>
 </head>
 
-<body class="bg-gray-50 text-slate-900 min-h-screen">
-    <nav class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center sticky top-0 z-50">
+<body class="bg-[#0b1e04] text-white min-h-screen">
+    <nav
+        class="bg-[#0b1e04] border-b border-white/10 px-8 py-4 flex justify-between items-center sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-[#a03c04] rounded-lg flex items-center justify-center text-white">
+            <div class="w-10 h-10 bg-[#0b1e04] rounded-lg flex items-center justify-center text-white">
                 <span class="material-symbols-outlined">analytics</span>
             </div>
-            <h1 class="font-headline font-extrabold text-xl tracking-tight">Admin <span class="text-[#a03c04]">Loterie
+            <h1 class="font-headline font-extrabold text-xl tracking-tight">Admin <span class="text-[#de7313]">Loterie
                     BNP Paribas</span></h1>
         </div>
         <div class="flex gap-4">
+            <button onclick="window.location.href='index.html'"
+                class="flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-white/20 transition-all">
+                <span class="material-symbols-outlined text-sm">home</span> Accueil
+            </button>
             <button onclick="exportToCSV()"
-                class="flex items-center gap-2 bg-[#0f6d39] text-white px-4 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-all">
+                class="flex items-center gap-2 bg-[#0b1e04] text-white px-4 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-all">
                 <span class="material-symbols-outlined text-sm">download</span> Exporter CSV
             </button>
             <button onclick="clearData()"
@@ -46,19 +51,30 @@
     <main class="p-8 max-w-7xl mx-auto">
         <!-- Admin Settings -->
         <div
-            class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 mb-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            class="bg-white/5 p-8 rounded-3xl shadow-sm border border-white/10 mb-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex flex-col gap-1 text-center md:text-left">
                 <h3 class="font-headline font-black text-xl">Configuration du Jour</h3>
                 <p class="text-gray-500 text-sm">Définissez le nombre de places à distribuer entre 12h et 17h.</p>
             </div>
-            <div class="flex items-center gap-4 bg-gray-50 p-2 rounded-2xl border border-gray-200">
-                <div class="flex flex-col px-4">
-                    <span class="text-[10px] uppercase font-black text-gray-400">Stock Initial</span>
-                    <input type="number" id="dailyStock" value="5" min="1"
-                        class="bg-transparent border-none font-headline font-black text-2xl w-20 focus:ring-0 p-0 text-[#a03c04]">
+            <div
+                class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 flex-wrap justify-center">
+                <div class="flex flex-col px-4 border-r border-white/10">
+                    <span class="text-[10px] uppercase font-black text-gray-400">Ajout/supp</span>
+                    <input type="number" id="dailyStock" value="0"
+                        class="bg-transparent border-none font-headline font-black text-2xl w-20 focus:ring-0 p-0 text-[#de7313]">
+                </div>
+                <div class="flex flex-col px-4 border-r border-white/10">
+                    <span class="text-[10px] uppercase font-black text-gray-400">Début</span>
+                    <input type="time" id="startTime"
+                        class="bg-transparent border-none font-headline font-black text-xl w-24 focus:ring-0 p-0 text-white">
+                </div>
+                <div class="flex flex-col px-4 border-r border-white/10">
+                    <span class="text-[10px] uppercase font-black text-gray-400">Fin</span>
+                    <input type="time" id="endTime"
+                        class="bg-transparent border-none font-headline font-black text-xl w-24 focus:ring-0 p-0 text-white">
                 </div>
                 <button onclick="saveSettings()"
-                    class="bg-[#a03c04] text-white px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-primary/20">
+                    class="bg-[#0b1e04] text-white px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-primary/20">
                     <span class="material-symbols-outlined text-sm">save</span> Appliquer
                 </button>
             </div>
@@ -66,36 +82,31 @@
 
         <!-- Stats Overview -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1">Total Inscriptions</p>
+            <div class="bg-white/5 p-6 rounded-2xl shadow-sm border border-white/10">
+                <p class="text-gray-400 text-sm font-bold uppercase tracking-wider mb-1">Total Inscriptions</p>
                 <h2 id="totalCount" class="text-4xl font-headline font-black">0</h2>
             </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1">Gagnants (Total)</p>
-                <h2 id="winnerCount" class="text-4xl font-headline font-black text-[#0f6d39]">0</h2>
+            <div class="bg-white/5 p-6 rounded-2xl shadow-sm border border-white/10">
+                <p class="text-gray-400 text-sm font-bold uppercase tracking-wider mb-1">Gagnants (Total)</p>
+                <h2 id="winnerCount" class="text-4xl font-headline font-black text-[#de7313]">0</h2>
             </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1">Places Restantes</p>
+            <div class="bg-white/5 p-6 rounded-2xl shadow-sm border border-white/10">
+                <p class="text-gray-400 text-sm font-bold uppercase tracking-wider mb-1">Places Restantes</p>
                 <h2 id="remainingStock" class="text-4xl font-headline font-black text-amber-600">0</h2>
             </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div class="bg-white/5 p-6 rounded-2xl shadow-sm border border-white/10">
                 <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1">Heures Distribution</p>
-                <h2 class="text-3xl font-headline font-black text-gray-400">12h - 17h</h2>
+                <h2 id="distributionRange" class="text-3xl font-headline font-black text-gray-400">12h - 17h</h2>
             </div>
         </div>
 
         <!-- Inscriptions Table -->
-        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="bg-white/5 rounded-3xl shadow-sm border border-white/10 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="bg-gray-50 border-b border-gray-100">
+                        <tr class="bg-white/5 border-b border-white/10">
                             <th class="px-6 py-4 text-xs font-black uppercase tracking-widest text-gray-400">Date/Heure
-                            </th>
-                            <th class="px-6 py-4 text-xs font-black uppercase tracking-widest text-gray-400">Nom /
-                                Prénom</th>
-                            <th class="px-6 py-4 text-xs font-black uppercase tracking-widest text-gray-400">Email</th>
-                            <th class="px-6 py-4 text-xs font-black uppercase tracking-widest text-gray-400">Téléphone
                             </th>
                             <th class="px-6 py-4 text-xs font-black uppercase tracking-widest text-gray-400">Résultat
                             </th>
@@ -117,13 +128,19 @@
     <script>
         async function saveSettings() {
             const stock = document.getElementById('dailyStock').value;
+            const startTime = document.getElementById('startTime').value;
+            const endTime = document.getElementById('endTime').value;
             try {
                 await fetch('/api/config', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ dailyStock: parseInt(stock) })
+                    body: JSON.stringify({
+                        dailyStock: parseInt(stock),
+                        startTime: startTime,
+                        endTime: endTime
+                    })
                 });
-                alert('Paramètres enregistrés ! ' + stock + ' places seront distribuées aujourd\'hui entre 12h et 17h.');
+                alert('Paramètres enregistrés ! ' + stock + ' places seront distribuées aujourd\'hui entre ' + startTime + ' et ' + endTime + '.');
                 loadData();
             } catch (e) {
                 alert('Erreur lors de la sauvegarde.');
@@ -146,6 +163,9 @@
             const dailyStock = db.config.dailyStock;
 
             document.getElementById('dailyStock').value = dailyStock;
+            document.getElementById('startTime').value = db.config.startTime || "12:00";
+            document.getElementById('endTime').value = db.config.endTime || "17:00";
+            document.getElementById('distributionRange').innerText = (db.config.startTime || "12:00").replace(':', 'h') + ' - ' + (db.config.endTime || "17:00").replace(':', 'h');
             tableBody.innerHTML = '';
 
             if (registrations.length === 0) {
@@ -158,17 +178,14 @@
                     const isWinner = reg.result === 'GAGNÉ';
 
                     const row = `
-                        <tr class="border-b border-gray-50 hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-sm text-gray-500">${date}</td>
-                            <td class="px-6 py-4 font-bold text-gray-900">${reg.lastname} ${reg.firstname}</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">${reg.email}</td>
-                            <td class="px-6 py-4 text-sm text-gray-600">${reg.phone || '-'}</td>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-sm text-gray-400">${date}</td>
                             <td class="px-6 py-4">
-                                <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase ${isWinner ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}">
+                                <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase ${isWinner ? 'bg-green-100/10 text-green-500' : 'bg-red-100/10 text-red-500'}">
                                     ${reg.result || 'EN COURS...'}
                                 </span>
                             </td>
-                            <td class="px-6 py-4 font-mono text-xs font-bold text-gray-400">${reg.securityCode || '-'}</td>
+                            <td class="px-6 py-4 font-mono text-xs font-bold text-gray-300">${reg.securityCode || '-'}</td>
                         </tr>
                     `;
                     tableBody.innerHTML += row;
@@ -178,7 +195,7 @@
             // Update stats
             const total = registrations.length;
             const winners = registrations.filter(r => r.result === 'GAGNÉ').length;
-            const remaining = Math.max(0, dailyStock - winners);
+            const remaining = dailyStock - winners;
 
             document.getElementById('totalCount').innerText = total;
             document.getElementById('winnerCount').innerText = winners;
@@ -192,17 +209,11 @@
 
             if (registrations.length === 0) return alert('Aucune donnée à exporter.');
 
-            const headers = ['ID', 'Date', 'Nom', 'Prénom', 'Email', 'Téléphone', 'Ville', 'Résultat', 'Code Sécurité'];
+            const headers = ['Date', 'Résultat', 'Code Sécurité'];
             const csvContent = [
                 headers.join(','),
                 ...registrations.map(r => [
-                    r.id,
                     new Date(r.timestamp).toLocaleString('fr-FR'),
-                    r.lastname,
-                    r.firstname,
-                    r.email,
-                    r.phone,
-                    r.city,
                     r.result || 'EN COURS',
                     r.securityCode || '-'
                 ].map(val => `"${val}"`).join(','))
