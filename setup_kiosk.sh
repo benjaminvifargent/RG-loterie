@@ -4,7 +4,19 @@
 # Compatible Raspberry Pi 5 (OS Bookworm / Wayland)
 
 APP_DIR=$(pwd)
-USER_NAME=$(whoami)
+# Détecter le vrai utilisateur même si lancé avec sudo
+USER_NAME=${SUDO_USER:-$(whoami)}
+# Chemin fourni par l'utilisateur
+NODE_PATH="/home/pi5/.nvm/versions/node/v24.15.0/bin/node"
+
+# Vérifier si le chemin Node existe, sinon essayer de le trouver
+if [ ! -f "$NODE_PATH" ]; then
+    NODE_PATH=$(which node)
+fi
+
+echo "Utilisateur détecté : $USER_NAME"
+echo "Chemin Node utilisé : $NODE_PATH"
+echo "Répertoire de l'app : $APP_DIR"
 
 echo "--- Configuration du service Node.js ---"
 sudo bash -c "cat > /etc/systemd/system/loterie.service << EOF
@@ -16,7 +28,7 @@ After=network.target
 Type=simple
 User=$USER_NAME
 WorkingDirectory=$APP_DIR
-ExecStart=/home/pi5/.nvm/versions/node/v24.15.0/bin/node server.js
+ExecStart=$NODE_PATH server.js
 Restart=on-failure
 
 [Install]
