@@ -1,8 +1,8 @@
 {
   "registrations": [],
   "config": {
-    "dailyStock": 2,
+    "dailyStock": 12,
     "startTime": "12:00",
-    "endTime": "17:00"
+    "endTime": "13:00"
   }
 }
