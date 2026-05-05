@@ -325,8 +325,27 @@
 
                 if (isWinner && remainingStock > 0) {
                     const securityCode = generateSecurityAssets();
+                    try {
+                        await fetch('/api/register', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ result: 'GAGNÉ', securityCode: securityCode })
+                        });
+                        updateLiveStats();
+                    } catch (e) {
+                        console.error("Erreur d'enregistrement victoire", e);
+                    }
                     showModal('winModal');
                 } else {
+                    try {
+                        await fetch('/api/register', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ result: 'PERDU' })
+                        });
+                    } catch (e) {
+                        console.error("Erreur d'enregistrement défaite", e);
+                    }
                     showModal('loseModal');
                 }
             } catch (e) {

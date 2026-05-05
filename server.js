@@ -46,6 +46,23 @@ app.post('/api/config', (req, res) => {
     });
 });
 
+// Add a new registration
+app.post('/api/register', (req, res) => {
+    const newRegistration = {
+        ...req.body,
+        timestamp: new Date().toISOString()
+    };
+    fs.readFile(DATA_FILE, 'utf8', (err, data) => {
+        if (err) return res.status(500).send('Error reading data');
+        const db = JSON.parse(data);
+        db.registrations.push(newRegistration);
+        fs.writeFile(DATA_FILE, JSON.stringify(db, null, 2), (err) => {
+            if (err) return res.status(500).send('Error saving data');
+            res.json({ success: true });
+        });
+    });
+});
+
 // Clear all data
 app.delete('/api/data', (req, res) => {
     const emptyData = {
